@@ -25,7 +25,7 @@ const DoctorAvailability: React.FC = () => {
   const handleSetAvailability = async () => {
     try {
       const timeSlots = availability // Join the availability array into a hyphen-separated string
-      const url = `https://chatbot-backend-sbfd.onrender.com/set_availability/?doctor_name=${doctorName}&time_slot=${timeSlots}`;
+      const url = `http://localhost:8000/set_availability/?doctor_name=${doctorName}&time_slot=${timeSlots}`;
       
       const response = await axios.post(url);
       
