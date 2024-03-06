@@ -30,7 +30,7 @@ const Patient = () => {
 
         // send form data to api endpoint
         await axios
-          .post("http://localhost:8000/post-audio", formData, {
+          .post("https://chatbot-backend-sbfd.onrender.com/post-audio", formData, {
             headers: {
               "Content-Type": "audio/mpeg",
             },
