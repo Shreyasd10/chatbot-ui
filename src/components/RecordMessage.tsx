@@ -1,37 +1,25 @@
 import { ReactMediaRecorder } from "react-media-recorder";
 import RecordIcon from "./RecordIcon";
-import React, { useState } from "react";
 
 type Props = {
   handleStop: any;
 };
 
-const RecordMessage: React.FC<Props> = ({ handleStop }) => {
-  const [isRecording, setIsRecording] = useState(false);
-
-  const startRecording = () => {
-    setIsRecording(true);
-  };
-
-  const stopRecording = () => {
-    setIsRecording(false);
-  };
-
+const RecordMessage = ({ handleStop }: Props) => {
   return (
     <ReactMediaRecorder
       audio
       onStop={handleStop}
-      render={({ status }) => (
+      render={({ status, startRecording, stopRecording }) => (
         <div className="mt-2">
           <button
             onMouseDown={startRecording}
             onMouseUp={stopRecording}
             className="bg-white p-4 rounded-full"
-            disabled={isRecording}
           >
             <RecordIcon
               classText={
-                isRecording
+                status == "recording"
                   ? "animate-pulse text-red-500"
                   : "text-sky-500"
               }
