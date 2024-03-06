@@ -15,7 +15,7 @@ function Title({ setMessages }: Props) {
     setIsResetting(true);
 
     try {
-      const res = await axios.get("https://chatbot-backend-sbfd.onrender.com/reset", {
+      const res = await axios.get("http://localhost:8000/reset", {
         headers: {
           "Content-Type": "application/json",
         },
